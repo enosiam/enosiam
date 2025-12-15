@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carsearch NG — Vehicle History Reports</title>
+  <title>CarSearch NG — Vehicle History Reports</title>
 
   <meta name="description" content="Check vehicle history in Nigeria. Verify plate number or VIN. Avoid stolen or accident vehicles.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles/">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
-    <h1 class="logo">AutoVerify<span>NG</span></h1>
+    <h1 class="logo">CarSearch<span>NG</span></h1>
     <nav>
       <a href="#">How it Works</a>
       <a href="#">Sample Report</a>
@@ -97,34 +97,9 @@
 <footer class="site-footer">
   <p>© 2025 AutoVerify NG • NDPR Compliant</p>
   <p class="disclaimer">
-    AutoVerify NG is not affiliated with FRSC or any government agency.
+    Carsearch NG is not affiliated with FRSC or any government agency.
   </p>
 </footer>
-
-
-<script>
-  const form = document.getElementById("searchForm");
-  const input = document.getElementById("searchInput");
-
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    const value = input.value.trim().toUpperCase();
-
-    // VIN = 17 characters (basic check)
-    const isVIN = /^[A-HJ-NPR-Z0-9]{17}$/.test(value);
-
-    // Nigerian plate number (ABC-123DE or ABC123DE)
-    const isPlate = /^[A-Z]{3}-?\d{3}[A-Z]{2}$/.test(value);
-
-    if (isVIN) {
-      window.location.href = `results.html?type=vin&value=${value}`;
-    } else if (isPlate) {
-      window.location.href = `results.html?type=plate&value=${value}`;
-    } else {
-      alert("Please enter a valid VIN or Nigerian plate number");
-    }
-  });
-</script>
 
 </body>
 </html>
