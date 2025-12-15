@@ -1,73 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vehicle Report | CarSearch</title>
-  <meta name="description" content="View vehicle history report for Nigerian cars using plate number or VIN.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Search Results — CarSearch NG</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
-    <h1 class="logo">CarSearch</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#">How it Works</a>
-      <a href="#">Sample Report</a>
-    </nav>
+    <h1 class="logo">CarSearch<span>NG</span></h1>
   </div>
 </header>
 
 <main class="container">
+  <h2 id="resultTitle">Vehicle Report</h2>
 
-  <!-- REPORT HEADER -->
-  <section class="report-header">
-    <h2 id="reportTitle">Vehicle Report</h2>
-    <p id="reportSubtitle"></p>
-  </section>
+  <div class="report-card" id="resultCard">
+    <p>Loading vehicle data…</p>
+  </div>
 
-  <!-- TRUST BADGES -->
-  <section class="trust trust-grid">
-    <div class="badge">✔ Verified Data</div>
-    <div class="badge">✔ FRSC & Insurance Sources</div>
-    <div class="badge">✔ Nigerian Records</div>
-  </section>
-
-  <!-- SUMMARY GRID -->
-  <section class="summary-grid">
-    <div class="summary-card">
-      <h3>Accidents</h3>
-      <p id="accidents"></p>
-    </div>
-    <div class="summary-card">
-      <h3>Ownership</h3>
-      <p id="owners"></p>
-    </div>
-    <div class="summary-card">
-      <h3>Stolen Status</h3>
-      <p id="stolen"></p>
-    </div>
-    <div class="summary-card">
-      <h3>Outstanding Loans</h3>
-      <p id="loans"></p>
-    </div>
-  </section>
-
-  <!-- VEHICLE DETAILS -->
-  <section class="details">
-    <h3>Vehicle Details</h3>
-    <ul id="detailsList"></ul>
-  </section>
-
+  <div style="margin-top:2rem">
+    <a href="index.html" class="btn-outline">← New Search</a>
+  </div>
 </main>
 
-<footer class="site-footer">
-  <p>© 2025 CarSearch • Data for educational use</p>
-</footer>
-
-<script src="scripts/results.js"></script>
+<script src="Script/search.js"></script>
 </body>
 </html>
