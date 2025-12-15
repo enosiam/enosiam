@@ -1,46 +1,47 @@
-// Read query params
-const params = new URLSearchParams(window.location.search);
-const type = params.get("type");
-const value = params.get("value");
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+  const value = params.get("value");
 
-// Page elements
-const title = document.getElementById("reportTitle");
-const subtitle = document.getElementById("reportSubtitle");
+  const reportTitle = document.getElementById("reportTitle");
+  const reportSubtitle = document.getElementById("reportSubtitle");
 
-// Mock Nigerian vehicle data (replace later with API)
-const mockReport = {
-  accidents: "No accidents reported",
-  owners: "2 previous owners",
-  stolen: "Not reported stolen",
-  loans: "No outstanding loans",
-  details: {
-    Make: "Toyota",
-    Model: "Corolla",
-    Year: "2018",
-    Color: "Silver",
-    Registration: "Lagos",
-    Engine: "1.8L Petrol"
-  }
-};
+  reportTitle.textContent = `Vehicle Report: ${value}`;
+  reportSubtitle.textContent = `Report type: ${type.toUpperCase()}`;
 
-// Set header text
-title.textContent = "Vehicle History Report";
-subtitle.textContent =
-  type === "vin"
-    ? `VIN: ${value}`
-    : `Plate Number: ${value}`;
+  const accidentsEl = document.getElementById("accidents");
+  const ownersEl = document.getElementById("owners");
+  const stolenEl = document.getElementById("stolen");
+  const loansEl = document.getElementById("loans");
+  const detailsListEl = document.getElementById("detailsList");
 
-// Populate summary
-document.getElementById("accidents").textContent = mockReport.accidents;
-document.getElementById("owners").textContent = mockReport.owners;
-document.getElementById("stolen").textContent = mockReport.stolen;
-document.getElementById("loans").textContent = mockReport.loans;
+  // MOCK DATA (replace with real API later)
+  const mockData = {
+    accidents: "No accidents reported",
+    owners: "2 previous owners",
+    stolen: "No",
+    loans: "None",
+    details: [
+      { label: "Make", value: "Toyota" },
+      { label: "Model", value: "Corolla" },
+      { label: "Year", value: "2018" },
+      { label: "Color", value: "White" },
+      { label: "Engine", value: "1.8L Petrol" },
+      { label: type === "vin" ? "VIN" : "Plate", value: value }
+    ]
+  };
 
-// Populate details
-const list = document.getElementById("detailsList");
+  // Populate summary
+  accidentsEl.textContent = mockData.accidents;
+  ownersEl.textContent = mockData.owners;
+  stolenEl.textContent = mockData.stolen;
+  loansEl.textContent = mockData.loans;
 
-Object.entries(mockReport.details).forEach(([key, val]) => {
-  const li = document.createElement("li");
-  li.innerHTML = `<strong>${key}:</strong> ${val}`;
-  list.appendChild(li);
+  // Populate details list
+  detailsListEl.innerHTML = "";
+  mockData.details.forEach(d => {
+    const li = document.createElement("li");
+    li.textContent = `${d.label}: ${d.value}`;
+    detailsListEl.appendChild(li);
+  });
 });

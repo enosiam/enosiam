@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vehicle Report | NaijaAutoCheck</title>
-
+  <title>Vehicle Report | CarSearch</title>
   <meta name="description" content="View vehicle history report for Nigerian cars using plate number or VIN.">
 
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
-<header class="header">
+<header class="site-header">
   <div class="container">
-    <h1>NaijaAutoCheck</h1>
-    <p>Trusted Nigerian Vehicle History Reports</p>
+    <h1 class="logo">CarSearch</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">How it Works</a>
+      <a href="#">Sample Report</a>
+    </nav>
   </div>
 </header>
 
@@ -27,7 +30,7 @@
   </section>
 
   <!-- TRUST BADGES -->
-  <section class="trust">
+  <section class="trust trust-grid">
     <div class="badge">✔ Verified Data</div>
     <div class="badge">✔ FRSC & Insurance Sources</div>
     <div class="badge">✔ Nigerian Records</div>
@@ -53,7 +56,7 @@
     </div>
   </section>
 
-  <!-- DETAILS -->
+  <!-- VEHICLE DETAILS -->
   <section class="details">
     <h3>Vehicle Details</h3>
     <ul id="detailsList"></ul>
@@ -61,10 +64,10 @@
 
 </main>
 
-<footer class="footer">
-  <p>© 2025 NaijaAutoCheck • Data for educational use</p>
+<footer class="site-footer">
+  <p>© 2025 CarSearch • Data for educational use</p>
 </footer>
 
-<script src="Script/search.js"></script>
+<script src="scripts/results.js"></script>
 </body>
 </html>
