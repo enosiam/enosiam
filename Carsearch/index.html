@@ -32,15 +32,16 @@
       <h2>Know the car before you buy</h2>
       <p>Get instant vehicle history reports in Nigeria using plate number or VIN.</p>
 
-      <form class="search-box">
-        <input 
-          type="text" 
-          placeholder="Enter plate number or VIN"
-          aria-label="Plate number or VIN"
-          required
-        >
-        <button type="submit">Search</button>
-      </form>
+        <form action="Carsearch/results.html" method="GET" class="search-form">
+        <form class="search-box" id="searchForm">
+  <input 
+    id="searchInput"
+    type="text" 
+    placeholder="Enter plate number or VIN"
+    required
+  >
+  <button type="submit">Search</button>
+</form>
 
       <div class="trust-badges">
         <span>✔ Nigerian data sources</span>
@@ -100,6 +101,29 @@
     CarSearch NG is not affiliated with FRSC or any government agency.
   </p>
 </footer>
+<script>
+  const form = document.getElementById("searchForm");
+  const input = document.getElementById("searchInput");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const value = input.value.trim().toUpperCase();
+
+    // VIN = 17 characters
+    const isVIN = /^[A-HJ-NPR-Z0-9]{17}$/.test(value);
+
+    // Nigerian plate number (ABC-123DE or ABC123DE)
+    const isPlate = /^[A-Z]{3}-?\d{3}[A-Z]{2}$/.test(value);
+
+    if (isVIN) {
+      window.location.href = `results.html?type=vin&value=${value}`;
+    } else if (isPlate) {
+      window.location.href = `results.html?type=plate&value=${value}`;
+    } else {
+      alert("Please enter a valid VIN or Nigerian plate number");
+    }
+  });
+</script>
 
 </body>
 </html>
