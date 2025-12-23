@@ -1,0 +1,40 @@
+{
+  "vehicles": [
+    {
+      "plate": "ABC123DE",
+      "vin": "1HGCM82633A004352",
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2018,
+      "owners": 2,
+      "accidents": 0,
+      "stolen": false,
+      "loan": false,
+      "imported": true
+    },
+    {
+      "plate": "LAG456FG",
+      "vin": "2T1BURHE5JC074112",
+      "make": "Honda",
+      "model": "Civic",
+      "year": 2016,
+      "owners": 3,
+      "accidents": 1,
+      "stolen": false,
+      "loan": true,
+      "imported": false
+    },
+    {
+      "plate": "KAN789HJ",
+      "vin": "3FAHP0HA8AR298331",
+      "make": "Ford",
+      "model": "Fusion",
+      "year": 2015,
+      "owners": 1,
+      "accidents": 0,
+      "stolen": true,
+      "loan": false,
+      "imported": true
+    }
+  ]
+}

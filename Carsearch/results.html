@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vehicle Search Results — CarSearch NG</title>
-
+  <title>Vehicle Report — CarSearch NG</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -20,14 +19,53 @@
   <h2 id="resultTitle">Vehicle Report</h2>
 
   <div class="report-card" id="resultCard">
-    <p>Loading vehicle data…</p>
+    <p class="loading-spinner"></p>
   </div>
+
+  <!-- Search History -->
+  <section id="historySection" style="margin-top:2rem">
+    <h3>Recent Searches</h3>
+    <ul id="searchHistory"></ul>
+  </section>
 
   <div style="margin-top:2rem">
     <a href="index.html" class="btn-outline">← New Search</a>
   </div>
 </main>
 
+<footer class="footer">
+  <p>© 2025 CarSearch NG • NDPR Compliant</p>
+</footer>
+
 <script src="Script/search.js"></script>
 </body>
 </html>
+
+        <p>Receive an instant report and make an informed decision.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE REPORT -->
+  <section id="sampleReport" style="margin-top:3rem; margin-bottom:3rem;">
+    <h3>Sample Vehicle Report</h3>
+    <div class="report-card">
+      <h4>Vehicle Information</h4>
+      <p><strong>Make:</strong> Toyota</p>
+      <p><strong>Model:</strong> Camry</p>
+      <p><strong>Year:</strong> 2018</p>
+      <p><strong>VIN:</strong> JTNB11HK0J3001234</p>
+
+      <h4>Ownership History</h4>
+      <p>This vehicle has had 2 previous owners.</p>
+
+      <h4>Accident History</h4>
+      <p>No reported accidents.</p>
+
+      <h4>Recall Information</h4>
+      <p>No active recalls.</p>
+
+      <h4>Stolen Status</h4>
+      <p>This vehicle is not reported as stolen.</p>
+    </div>
+  </section>

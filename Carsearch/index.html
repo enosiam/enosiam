@@ -7,9 +7,10 @@
 
   <meta name="description" content="Check vehicle history in Nigeria. Verify plate number or VIN. Avoid stolen or accident vehicles.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Main CSS -->
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
@@ -25,81 +26,80 @@
   </div>
 </header>
 
-<main>
+<main class="container">
+
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <h2>Know the car before you buy</h2>
-      <p>Get instant vehicle history reports in Nigeria using plate number or VIN.</p>
+    <h2>Know the car before you buy!</h2>
+    <p>Get instant vehicle history reports in Nigeria using plate number or VIN.</p>
 
-      <form class="search-box">
-        <input 
-          type="text" 
-          placeholder="Enter plate number or VIN"
-          aria-label="Plate number or VIN"
-          required
-        >
-        <button type="submit">Search</button>
-      </form>
+    <form class="search-box" id="searchForm">
+      <input 
+        id="searchInput"
+        type="text" 
+        placeholder="Enter plate number or VIN"
+        required
+      >
+      <button type="submit">Search</button>
+    </form>
 
-      <div class="trust-badges">
-        <span>✔ Nigerian data sources</span>
-        <span>✔ Secure & private</span>
-        <span>✔ Used by car buyers</span>
-      </div>
+    <div class="trust-badges">
+      <span>✔ Nigerian data sources</span>
+      <span>✔ Secure & private</span>
+      <span>✔ Used by car buyers</span>
     </div>
   </section>
 
   <!-- TRUST -->
-  <section class="trust">
-    <div class="container trust-grid">
-      <div>
-        <h3>Avoid scams</h3>
-        <p>Detect stolen or accident-damaged vehicles before payment.</p>
-      </div>
-      <div>
-        <h3>Buy with confidence</h3>
-        <p>See ownership, recall, and registration history.</p>
-      </div>
-      <div>
-        <h3>Nigeria-focused</h3>
-        <p>Built specifically for Nigerian plates and imports.</p>
-      </div>
-    </div>
+  <section class="trust" style="margin-top: 2rem;">
+    <div class="badge">Avoid scams: detect stolen/accident vehicles</div>
+    <div class="badge">Ownership & recall history</div>
+    <div class="badge">Nigeria-focused</div>
   </section>
 
   <!-- SAMPLE REPORT -->
-  <section class="preview">
-    <div class="container">
-      <h2>What’s in a report?</h2>
-
-      <div class="report-card">
-        <ul>
-          <li>Vehicle Details</li>
-          <li>Ownership History</li>
-          <li>Accident Indicators</li>
-          <li>Stolen Check</li>
-          <li>Recall Alerts</li>
-        </ul>
-        <button class="btn-primary">View Sample Report</button>
-      </div>
+  <section class="summary-grid" style="margin-top:2rem;">
+    <div class="summary-card">
+      <h3>Vehicle Details</h3>
+      <ul>
+        <li>Make & Model</li>
+        <li>Ownership History</li>
+        <li>Accident Indicators</li>
+        <li>Stolen Check</li>
+        <li>Recall Alerts</li>
+      </ul>
+      <a href="results.html" class="btn-outline" style="margin-top:1rem;">View Sample Report</a>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <h2>Check your vehicle now</h2>
-    <p>It takes less than 60 seconds.</p>
-    <a href="#" class="btn-primary">Run a Search</a>
-  </section>
 </main>
 
-<footer class="site-footer">
-  <p>© 2025 AutoVerify NG • NDPR Compliant</p>
-  <p class="disclaimer">
-    Carsearch NG is not affiliated with FRSC or any government agency.
-  </p>
+<footer class="footer">
+  <p>© 2025 CarSearch NG • NDPR Compliant</p>
 </footer>
+
+<script>
+  const form = document.getElementById("searchForm");
+  const input = document.getElementById("searchInput");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const value = input.value.trim().toUpperCase();
+
+    // VIN = 17 characters
+    const isVIN = /^[A-HJ-NPR-Z0-9]{17}$/.test(value);
+    // Nigerian plate number (ABC-123DE or ABC123DE)
+    const isPlate = /^[A-Z]{3}-?\d{3}[A-Z]{2}$/.test(value);
+
+    if (isVIN) {
+      window.location.href = `results.html?type=vin&value=${value}`;
+    } else if (isPlate) {
+      window.location.href = `results.html?type=plate&value=${value}`;
+    } else {
+      alert("Please enter a valid VIN or Nigerian plate number");
+    }
+  });
+</script>
 
 </body>
 </html>
